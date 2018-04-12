@@ -1,0 +1,39 @@
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+        <h3 *ngIf="isLoading">
+            <i>Loading accounts ... </i>
+          </h3>
+          <h3 *ngIf="!isLoading">Select a account:</h3>
+      <button (click)="getAccounts()" class="btn btn-primary">Refresh</button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Number</th>
+            <th>Type</th>
+            <th>actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let account of accounts | async">
+            <td>{{account.number}}</td>
+            <td>{{account.type}}</td>
+            <td>
+              <button (click)="select(account)" class="btn btn-primary">Edit</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-6">
+      <div *ngIf="selectedAccount">
+        <hr>
+        <h3>Editing: {{selectedAccount.number}}</h3>
+        <app-account-detail [account]="selectedAccount"></app-account-detail>
+      </div>
+    </div>
+  </div>
+</div>

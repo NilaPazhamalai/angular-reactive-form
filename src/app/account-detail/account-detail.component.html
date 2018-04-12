@@ -1,0 +1,24 @@
+<h2>Account Detail</h2>
+<form [formGroup]="accountFormGroup">
+  <div class="form-group">
+    <label class="center-block">Number:
+      <input class="form-control" formControlName="number">
+    </label>
+    <label class="center-block">Type:
+        <select class="form-control" formControlName="type">
+            <option *ngFor="let type of accountType" [value]="type">{{type}}</option>
+        </select>
+      </label>
+    
+    <label class="center-block">Holder Id:
+      <input class="form-control" formControlName="holder_id">
+    </label>
+
+    <label class="center-block">Balance:
+      <input class="form-control" formControlName="balance">
+    </label>
+  </div>
+</form>
+
+<p>Form value: {{ accountFormGroup.value | json }}</p>
+<p>Form value: {{ accountFormGroup.status | json }}</p>

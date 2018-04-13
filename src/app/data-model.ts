@@ -1,5 +1,5 @@
 export class Account {
-    _id = '';
+    id = '';
     number = '';
     type = '';
     holder_id = '';
@@ -7,11 +7,26 @@ export class Account {
 }
 
 export class Transaction {
-    _id = '';
+    id = '';
     source_Account_number = '';
-    target_Account_number = '';
+    target_account_number = '';
     date: Date;
     amount = 0;
+}
+
+export class TransactionDetail {
+    sourceAccount: Account;
+    sourceAccountHolder: User;
+    targetAccount: Account;
+    targetAccountHolder: User;
+    date: Date;
+    amount = 0;
+}
+
+export class User {
+    id: string;
+    username: string;
+    email: string;
 }
 
 export const accountType = ['current', 'savings', 'RD'];

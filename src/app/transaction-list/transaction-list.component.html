@@ -1,0 +1,42 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-5">
+        <h3 *ngIf="isLoading">
+            <i>Loading transaction ... </i>
+          </h3>
+          <h3 *ngIf="!isLoading">Select a account:</h3>
+      <button (click)="getTransactions()" class="btn btn-primary">Refresh</button>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>
+              Source Account </th>
+            <th>Target Account</th>
+            <th>Amount</th>
+            <th>Date</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let transaction of transactions | async">
+            <td>{{transaction.source_Account_number}}</td>
+            <td>{{transaction.target_account_number}}</td>
+            <td>{{transaction.amount}}</td>
+            <td>{{transaction.date}}</td>
+            <td>
+              <button (click)="select(transaction)" class="btn btn-primary">Detail</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-sm-1">
+    </div>
+    <div class="col-sm-6">
+      <div *ngIf="selectedTransaction">
+        <hr>
+        <app-transaction-detail [transaction]="selectedTransaction"></app-transaction-detail>
+      </div>
+    </div>
+  </div>
+</div>

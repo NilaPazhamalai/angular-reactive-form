@@ -1,0 +1,7 @@
+{
+  "localhost" : "http://localhost:3000/",
+  "accountsUrl": "api/accounts",
+  "accessToken": "?access_token=",
+  "accessTokenValue": "nKRwLBIh70zT1euPzkf5tdS9dmwu2zoGBKkuIZzzsCkxsmqElbdHl1tHOKKC1vNV",
+  "textfile": "assets/textfile.txt"
+}
